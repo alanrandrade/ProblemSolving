@@ -21,15 +21,7 @@ public class AddTwoNumbersTests
         ListNode actualResultingList = sol.AddTwoNumbersSolution(list1, list2);
         ListNode expectedResultListNode = ListNode.ToListNode(expectedResult);
 
-        bool areTheSame = true;
-        while (expectedResultListNode != null)
-        {
-            areTheSame &= actualResultingList.val == expectedResultListNode.val;
-            actualResultingList = actualResultingList.next;
-            expectedResultListNode = expectedResultListNode.next;
-        }
-
-        Assert.IsTrue(areTheSame, "Expected resulting list to be the same as actual list.");
+        Assert.AreEqual(expectedResultListNode, actualResultingList, "Expected resulting list to be the same as actual list.");
     }
 
     

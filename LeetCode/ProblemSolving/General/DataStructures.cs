@@ -36,6 +36,28 @@ namespace ProblemSolving.General
                 }
                 return head;
             }
+
+            public override bool Equals(object obj)
+            {
+                //Check for null and compare run-time types.
+                if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+                {
+                    return false;
+                }
+                else
+                {
+                    ListNode other = (ListNode)obj;
+                    bool areEqual = true;
+                    ListNode current = this;
+                    while (current != null)
+                    {
+                        areEqual &= current.val == other.val;
+                        current = current.next;
+                        other = other.next;
+                    }
+                    return areEqual;
+                }
+            }
         };
 
     }
